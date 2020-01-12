@@ -9,7 +9,7 @@ session.headers = {"",""}
 
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
+rr =0 
 cat_urls =[
 "https://www.amazon.in/s/ref=s9_acss_bw_cg_testref_1a1_w?i=stripbooks&bbn=1318073031&rh=n%3A976389031%2Cn%3A976390031%2Cn%3A1318073031%2Cp_n_age_range%3A1318384031%2Cp_85%3A10440599031&pf_rd_m=A1K21FY43GMZF8&pf_rd_s=merchandised-search-1&pf_rd_r=M4A31705J3449VGMNBKZ&pf_rd_t=101&pf_rd_p=c676da8c-399e-45f3-ae6a-cfe381a1468c&pf_rd_i=1318073031",
 "https://www.amazon.in/s/ref=s9_acss_bw_cg_testref_1b1_w?i=stripbooks&bbn=1318073031&rh=n%3A976389031%2Cn%3A976390031%2Cn%3A1318073031%2Cp_n_age_range%3A1318385031%2Cp_85%3A10440599031%2Cp_n_availability%3A1318484031&pf_rd_m=A1K21FY43GMZF8&pf_rd_s=merchandised-search-1&pf_rd_r=M4A31705J3449VGMNBKZ&pf_rd_t=101&pf_rd_p=c676da8c-399e-45f3-ae6a-cfe381a1468c&pf_rd_i=1318073031",
@@ -130,14 +130,14 @@ def books_all_scrap():
 
             for book in book_list_temp:
                 
-                book_i = books_all_scrap_one("https://www.amazon.com"+book.get('href'))
+                book_i = books_all_scrap_one("https://www.amazon.in"+book.get('href'))
 
                 if(check_if_redacted(book_i[0])=='no'):
                     pi =pi +1
                     book_list_all_2.append(book_i)
                     book_list_all.append(book_i)
-                    print("Currently scraping Page: ",x,"  of category ",title," Total Books scrapped: ",pi,"Working....",book_i[0] )
-
+                    print("[CAT_URL]",pi2,"Currently scraping Page: ",x,"  of category ",title," Total Books scrapped: ",pi,"Working....",book_i[0] )
+            print ("Redact Count", rr)
         f= open("/home/user88/Desktop/Iwyno/scrap_outputs/"+str(pi2)+"_"+title+".json","w+")
         f.write(json.dumps(book_list_all_2))
         f.close() 
@@ -177,11 +177,13 @@ def books_all_scrap_one(turl):
             print ("name :", name)
 
         except :
+            rr=rr+1
             book_list_all.append("REDACTED")
 
         return book_list_all 
 
     else:
+        rr=rr+1
         return 'REDACTED ADVERTISEMENT-ERROR: '
 
 def is_it_a_book_or_category(url):
