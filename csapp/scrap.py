@@ -150,11 +150,12 @@ def books_all_scrap():
             title= title.replace('.','')
             title= title.replace(' ','_')
             title= title.replace('"','_')
+            print ("for page ",x," --",title)
             if len(book_list_temp) ==0:
                 print ("errored for", title)
             for book in book_list_temp:
                 
-                book_i = books_all_scrap_one("https://www.amazon.com"+book.get('href'))
+                book_i = books_all_scrap_one("https://www.amazon.in"+book.get('href'))
 
                 if(check_if_redacted(book_i[0])=='no'):
                     pi =pi +1
@@ -179,6 +180,7 @@ def books_all_scrap_one(turl):
     x = re.search("/dp/+", url)
 
     if (x):
+        print('received :',url)
         try:
             soup = BeautifulSoup(content, "html5lib")
             name = soup.find('span',{'class':'a-size-large'}).text
@@ -201,11 +203,13 @@ def books_all_scrap_one(turl):
             print ("name :", name)
 
         except :
+            print('upped redacted')
             book_list_all.append("REDACTED")
 
         return book_list_all 
 
     else:
+        print('bottom redacted')
         return 'REDACTED ADVERTISEMENT-ERROR: '
 
 def is_it_a_book_or_category(url):
