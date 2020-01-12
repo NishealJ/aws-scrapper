@@ -11,28 +11,6 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 cat_urls =[
-"https://www.amazon.com/s?k=children+books&i=stripbooks&rh=n%3A283155%2Cn%3A4&dc&qid=1578751144&rnid=2941120011&ref=sr_pg_1",
-"https://www.amazon.com/s?k=children+books&i=stripbooks&rh=n%3A283155%2Cn%3A4%2Cp_72%3A1250221011&dc&qid=1578751392&rnid=1250219011&ref=sr_pg_1",
-"https://www.amazon.com/s?k=children+books&i=stripbooks&rh=n%3A283155%2Cn%3A4%2Cn%3A2966%2Cp_72%3A1250221011&dc&qid=1578751441&rnid=1000&ref=sr_pg_1",
-"https://www.amazon.com/s?k=children+books&i=stripbooks&rh=n%3A283155%2Cn%3A4%2Cn%3A3003%2Cp_72%3A1250221011&dc&qid=1578751523&rnid=1000&ref=sr_pg_1",
-"https://www.amazon.com/s?k=children+books&i=stripbooks&rh=n%3A283155%2Cn%3A4%2Cn%3A1084192%2Cp_72%3A1250221011&dc&qid=1578751586&rnid=1000&ref=sr_pg_1",
-"https://www.amazon.com/s?k=children+books&i=stripbooks&rh=n%3A283155%2Cn%3A4%2Cn%3A2787%2Cp_72%3A1250221011&dc&qid=1578751645&rnid=1000&ref=sr_pg_1",
-"https://www.amazon.com/s?k=children+books&i=stripbooks&rh=n%3A283155%2Cn%3A4%2Cn%3A2967%2Cp_72%3A1250221011&dc&qid=1578751714&rnid=1000&ref=sr_pg_1",
-"https://www.amazon.com/s?k=children+books&i=stripbooks&rh=n%3A283155%2Cn%3A4%2Cn%3A3371%2Cp_72%3A1250221011&dc&qid=1578751782&rnid=1000&ref=sr_pg_1",
-"https://www.amazon.com/s?k=children+books&i=stripbooks&rh=n%3A283155%2Cn%3A4%2Cn%3A3176%2Cp_72%3A1250221011&dc&qid=1578751854&rnid=1000&ref=sr_pg_1",
-"https://www.amazon.com/s?k=children+books&i=stripbooks&rh=n%3A283155%2Cn%3A4%2Cn%3A3344091011%2Cp_72%3A1250221011&dc&qid=1578751906&rnid=1000&ref=sr_pg_1",
-"https://www.amazon.com/s?k=childrens+books&i=stripbooks&rh=n%3A283155%2Cn%3A4%2Cn%3A3013%2Cp_72%3A1250221011&dc&crid=3OOCHK7IGKUOH&qid=1578752456&rnid=1250219011&sprefix=childrens+%2Caps%2C362&ref=sr_pg_1",
-"https://www.amazon.com/s?k=childrens+books&i=stripbooks&rh=n%3A283155%2Cn%3A4%2Cp_72%3A1250221011&dc&crid=3OOCHK7IGKUOH&qid=1578752522&sprefix=childrens+%2Caps%2C362&ref=sr_pg_1",
-"https://www.amazon.com/s?k=childrens+books&i=stripbooks&rh=n%3A283155%2Cn%3A4%2Cp_72%3A1250221011%2Cp_n_publication_date%3A1250227011&dc&crid=3OOCHK7IGKUOH&qid=1578752592&rnid=1250225011&sprefix=childrens+%2Caps%2C362&ref=sr_pg_1",
-"https://www.amazon.com/s?k=childrens+books&i=stripbooks&rh=n%3A283155%2Cn%3A4%2Cp_72%3A1250221011%2Cp_n_publication_date%3A1250227011%2Cp_n_feature_five_browse-bin%3A2579001011&dc&crid=3OOCHK7IGKUOH&qid=1578752664&rnid=2245026011&sprefix=childrens+%2Caps%2C362&ref=sr_pg_1",
-"https://www.amazon.com/s?k=childrens+books&i=stripbooks&rh=n%3A283155%2Cn%3A4%2Cp_72%3A1250221011%2Cp_n_publication_date%3A1250227011%2Cp_n_feature_five_browse-bin%3A2579000011&dc&crid=3OOCHK7IGKUOH&qid=1578752767&rnid=2245026011&sprefix=childrens+%2Caps%2C362&ref=sr_pg_1",
-"https://www.amazon.com/s?k=childrens+books&i=stripbooks&rh=n%3A283155%2Cn%3A4%2Cp_72%3A1250221011%2Cp_n_publication_date%3A1250227011%2Cp_n_feature_five_browse-bin%3A2578999011&dc&crid=3OOCHK7IGKUOH&qid=1578752850&rnid=2245026011&sprefix=childrens+%2Caps%2C362&ref=sr_pg_1",
-"https://www.amazon.com/s?k=childrens+books&i=stripbooks&rh=n%3A283155%2Cn%3A4%2Cp_72%3A1250221011%2Cp_n_publication_date%3A1250227011%2Cp_n_feature_five_browse-bin%3A2578998011&dc&crid=3OOCHK7IGKUOH&qid=1578752975&rnid=2245026011&sprefix=childrens+%2Caps%2C362&ref=sr_pg_1",
-"https://www.amazon.com/s?k=childrens+books&i=stripbooks&rh=n%3A283155%2Cn%3A2966%2Cp_72%3A1250221011%2Cp_n_feature_five_browse-bin%3A2578998011&dc&crid=3OOCHK7IGKUOH&qid=1578753092&rnid=2245026011&sprefix=childrens+%2Caps%2C362&ref=sr_pg_1",
-"https://www.amazon.com/s?k=childrens+books&i=stripbooks&rh=n%3A283155%2Cn%3A2966%2Cp_72%3A1250221011%2Cp_n_feature_five_browse-bin%3A2578999011&dc&crid=3OOCHK7IGKUOH&qid=1578753158&rnid=2245026011&sprefix=childrens+%2Caps%2C362&ref=sr_pg_1",
-"https://www.amazon.com/s?k=childrens+books&i=stripbooks&rh=n%3A283155%2Cn%3A2966%2Cp_72%3A1250221011%2Cp_n_feature_five_browse-bin%3A2579000011&dc&crid=3OOCHK7IGKUOH&qid=1578753204&rnid=2245026011&sprefix=childrens+%2Caps%2C362&ref=sr_pg_1",
-"https://www.amazon.com/s?k=childrens+books&i=stripbooks&rh=n%3A283155%2Cn%3A2966%2Cp_72%3A1250221011%2Cp_n_feature_five_browse-bin%3A2579001011&dc&crid=3OOCHK7IGKUOH&qid=1578753248&rnid=2245026011&sprefix=childrens+%2Caps%2C362&ref=sr_pg_1",
-"https://www.amazon.in/s?k=childrens+books&i=stripbooks&rh=n%3A283155%2Cn%3A4%2Cn%3A2966%2Cp_72%3A1250221011%2Cp_n_publication_date%3A1250227011&dc&crid=3OOCHK7IGKUOH&qid=1578753335&rnid=1250225011&sprefix=childrens+%2Caps%2C362&ref=sr_pg_1",
 "https://www.amazon.in/s/ref=s9_acss_bw_cg_testref_1a1_w?i=stripbooks&bbn=1318073031&rh=n%3A976389031%2Cn%3A976390031%2Cn%3A1318073031%2Cp_n_age_range%3A1318384031%2Cp_85%3A10440599031&pf_rd_m=A1K21FY43GMZF8&pf_rd_s=merchandised-search-1&pf_rd_r=M4A31705J3449VGMNBKZ&pf_rd_t=101&pf_rd_p=c676da8c-399e-45f3-ae6a-cfe381a1468c&pf_rd_i=1318073031",
 "https://www.amazon.in/s/ref=s9_acss_bw_cg_testref_1b1_w?i=stripbooks&bbn=1318073031&rh=n%3A976389031%2Cn%3A976390031%2Cn%3A1318073031%2Cp_n_age_range%3A1318385031%2Cp_85%3A10440599031%2Cp_n_availability%3A1318484031&pf_rd_m=A1K21FY43GMZF8&pf_rd_s=merchandised-search-1&pf_rd_r=M4A31705J3449VGMNBKZ&pf_rd_t=101&pf_rd_p=c676da8c-399e-45f3-ae6a-cfe381a1468c&pf_rd_i=1318073031",
 "https://www.amazon.in/s/ref=s9_acss_bw_cg_testref_1c1_w?i=stripbooks&bbn=1318073031&rh=n%3A976389031%2Cn%3A976390031%2Cn%3A1318073031%2Cp_n_age_range%3A1318386031%2Cp_85%3A10440599031%2Cp_n_availability%3A1318484031&pf_rd_m=A1K21FY43GMZF8&pf_rd_s=merchandised-search-1&pf_rd_r=M4A31705J3449VGMNBKZ&pf_rd_t=101&pf_rd_p=c676da8c-399e-45f3-ae6a-cfe381a1468c&pf_rd_i=1318073031",
@@ -142,19 +120,29 @@ def books_all_scrap():
             title=title.text
             title=title.replace('<title>','')
             title= title.replace('</title>','')
-            title =str(title)
+            title= title.replace('/','')
+            title= title.replace('\n','')
+            title= title.replace('.com','')
+            title= title.replace(':','_')
+            title= title.replace('.','')
+            title= title.replace(' ','_')
+            title= title.replace('"','_')
 
             for book in book_list_temp:
-                pi =pi +1
-                print("Currently scraping Page: ",x,"  of category ",title," Total Books scrapped: ",pi,"Working....")
-                book_list_all.append(books_all_scrap_one("https://www.amazon.com"+book.get('href')))
-                book_list_all_2.append(books_all_scrap_one("https://www.amazon.com"+book.get('href')))
+                
+                book_i = books_all_scrap_one("https://www.amazon.com"+book.get('href'))
 
-        f= open("/Users/nisheal/Desktop/opensource/Iwyn/scrape-aw-books/"+pi2+"_"+title+".json","w+")
+                if(check_if_redacted(book_i[0])=='no'):
+                    pi =pi +1
+                    book_list_all_2.append(book_i)
+                    book_list_all.append(book_i)
+                    print("Currently scraping Page: ",x,"  of category ",title," Total Books scrapped: ",pi,"Working....",book_i[0] )
+
+        f= open("/home/user88/Desktop/Iwyno/scrap_outputs/"+str(pi2)+"_"+title+".json","w+")
         f.write(json.dumps(book_list_all_2))
         f.close() 
     
-    f= open("/Users/nisheal/Desktop/opensource/Iwyn/scrape-aw-books/all.txt","w+")
+    f= open("/home/user88/Desktop/Iwyno/scrap_outputs/all.json","w+")
     f.write(json.dumps(book_list_all))
     f.close() 
     return book_list_all 
@@ -186,14 +174,15 @@ def books_all_scrap_one(turl):
             
             ccs =  soup.select('noscript')[1].get_text(strip=True)
             book_list_all.append("Desc: "+ccs)
+            print ("name :", name)
 
         except :
-            book_list_all.append("REDACTED-UPPER-ERROR : "+url)
+            book_list_all.append("REDACTED")
 
         return book_list_all 
 
     else:
-        return 'REDACTED-ADVERTISEMENT-ERROR: '
+        return 'REDACTED ADVERTISEMENT-ERROR: '
 
 def is_it_a_book_or_category(url):
 
@@ -204,6 +193,14 @@ def is_it_a_book_or_category(url):
     elif y:
         return 'category'
 
+def check_if_redacted(url):
+
+    x = re.search("REDACTED", url[0])
+
+    if (x or url=='R' or url=='REDACTED'):
+        return 'yes'
+    else:
+        return 'no'
 
 
 
