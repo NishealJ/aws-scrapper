@@ -9,7 +9,7 @@ session.headers = {"",""}
 
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-rr =0 
+rr = 0 
 cat_urls =[
 "https://www.amazon.in/s/ref=s9_acss_bw_cg_testref_1a1_w?i=stripbooks&bbn=1318073031&rh=n%3A976389031%2Cn%3A976390031%2Cn%3A1318073031%2Cp_n_age_range%3A1318384031%2Cp_85%3A10440599031&pf_rd_m=A1K21FY43GMZF8&pf_rd_s=merchandised-search-1&pf_rd_r=M4A31705J3449VGMNBKZ&pf_rd_t=101&pf_rd_p=c676da8c-399e-45f3-ae6a-cfe381a1468c&pf_rd_i=1318073031",
 "https://www.amazon.in/s/ref=s9_acss_bw_cg_testref_1b1_w?i=stripbooks&bbn=1318073031&rh=n%3A976389031%2Cn%3A976390031%2Cn%3A1318073031%2Cp_n_age_range%3A1318385031%2Cp_85%3A10440599031%2Cp_n_availability%3A1318484031&pf_rd_m=A1K21FY43GMZF8&pf_rd_s=merchandised-search-1&pf_rd_r=M4A31705J3449VGMNBKZ&pf_rd_t=101&pf_rd_p=c676da8c-399e-45f3-ae6a-cfe381a1468c&pf_rd_i=1318073031",
@@ -101,6 +101,7 @@ cat_urls =[
 "https://www.amazon.in/s/ref=lp_1318073031_nr_p_n_pct-off-with-tax_3/257-6349273-2010341?fst=as%3Aoff&rh=n%3A976389031%2Cn%3A%21976390031%2Cn%3A1318073031%2Cp_n_pct-off-with-tax%3A2665401031&bbn=1318073031&ie=UTF8&qid=1578753667&rnid=2665398031"]
 
 def books_all_scrap():
+    global rr
 
     book_list_all=[]
     pi = 0
@@ -148,6 +149,7 @@ def books_all_scrap():
     return book_list_all 
 
 def books_all_scrap_one(turl):
+    global rr
 
     url = turl
     book_list_all=[]
