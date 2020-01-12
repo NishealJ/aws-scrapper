@@ -118,8 +118,14 @@ def books_all_scrap():
         pi2=pi2+1
         proxy2 = list_proxies()
         print proxy2
+        iop = 0
         for x in range(0,75):
-
+            iop = iop +1
+            if iop>20:
+                iop = 0
+                proxy2 = list_proxies()
+                print proxy2
+                
             url = url_ct+"&page="+str(x)
             content = get_con(url,proxy2)
             # print("got this content:",content)
@@ -144,7 +150,8 @@ def books_all_scrap():
             title= title.replace('.','')
             title= title.replace(' ','_')
             title= title.replace('"','_')
-
+            if len(book_list_temp) ==0:
+                print ("errored for", title)
             for book in book_list_temp:
                 
                 book_i = books_all_scrap_one("https://www.amazon.com"+book.get('href'))
