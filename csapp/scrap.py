@@ -100,19 +100,36 @@ cat_urls =[
 "https://www.amazon.in/s/ref=lp_1318073031_nr_p_n_pct-off-with-tax_2/257-6349273-2010341?fst=as%3Aoff&rh=n%3A976389031%2Cn%3A%21976390031%2Cn%3A1318073031%2Cp_n_pct-off-with-tax%3A2665402031&bbn=1318073031&ie=UTF8&qid=1578753667&rnid=2665398031",
 "https://www.amazon.in/s/ref=lp_1318073031_nr_p_n_pct-off-with-tax_3/257-6349273-2010341?fst=as%3Aoff&rh=n%3A976389031%2Cn%3A%21976390031%2Cn%3A1318073031%2Cp_n_pct-off-with-tax%3A2665401031&bbn=1318073031&ie=UTF8&qid=1578753667&rnid=2665398031"]
 
+list_of_error_proxy=[]
+current_proxy=''
+def get_con(url,proxy):
+    try:
+        return session.get(url, proxies={"http": proxy, "https": proxy}).content
+    except:
+        print('Error Reconnecting 2:',proxy)
+        return 'error'
+    
 def books_all_scrap():
-
     book_list_all=[]
     pi = 0
     pi2 =0
     for url_ct in cat_urls:
         book_list_all_2=[]
         pi2=pi2+1
+        proxy2 = list_proxies()
+        print proxy2
         for x in range(0,75):
 
             url = url_ct+"&page="+str(x)
-
-            content = session.get(url, verify=False).content
+            content = get_con(url,proxy2)
+            # print("got this content:",content)
+            if(content!='error'):
+                print('connected:',proxy2)
+                
+            while(content=='error') :
+                print('Error Reconnecting:',proxy2)
+                proxy2 =list_proxies()
+                content=get_con(url,proxy2)
 
             soup = BeautifulSoup(content, "html5lib")
             book_list_temp = soup.findAll('a',{'class':'a-link-normal a-text-normal'})
@@ -203,4 +220,50 @@ def check_if_redacted(url):
         return 'no'
 
 
+def list_proxies():
+    working_proxy_list =[]
+    url = 'https://free-proxy-list.net/'
 
+    content = session.get(url, verify=False).content
+
+    soup = BeautifulSoup(content, "html5lib")
+    oo =   soup.find('table',{"id":"proxylisttable"})
+    ooo = oo.findAll('tr')
+    i =0
+    for o4 in ooo:
+        try:
+            ooi = str(o4.findAll('td')[0].contents[0])
+            ooi2=str(o4.findAll('td')[1].contents[0])
+            ooi3=str(o4.findAll('td')[1].contents[0])
+            ooi3=str(o4.findAll('td')[6].contents[0])
+            if(ooi3=='yes'):
+                
+                built = ooi+":"+ooi2
+                print("is yes", built)
+                if(check_the_proxy_connection(built)=='connected'):
+                    return built                
+        except:
+            print ''
+    return working_proxy_list
+
+def check_the_proxy_connection(p):
+    global list_of_error_proxy,current_proxy
+    if(p in list_of_error_proxy):
+        return 'error'
+        
+    url = 'https://httpbin.org/ip'
+    proxy = p
+    print("current proxy :",current_proxy," checking proxy connection of :",proxy)
+    response = requests.get(url,proxies={"http": proxy, "https": proxy})
+
+    if(response.json()!='' and current_proxy!= proxy):
+        print ("Got an new proxy:",proxy)
+        current_proxy=proxy
+        return 'connected'
+    else:
+        print ("Error: ",proxy, " need another proxy")
+        list_of_error_proxy.append(proxy)
+        return 'error'
+        
+
+    
