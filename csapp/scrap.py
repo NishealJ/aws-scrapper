@@ -104,7 +104,7 @@ list_of_error_proxy=[]
 current_proxy=''
 def get_con(url,proxy):
     try:
-        return session.get(url, proxies={"http": proxy, "https": proxy}).content
+        return session.get(url).content
     except:
         print('Error Reconnecting 2:',proxy)
         return 'error'
@@ -116,14 +116,14 @@ def books_all_scrap():
     for url_ct in cat_urls:
         book_list_all_2=[]
         pi2=pi2+1
-        proxy2 = list_proxies()
+        proxy2 = ''
         print proxy2
         iop = 0
         for x in range(0,75):
             iop = iop +1
             if iop>20:
                 iop = 0
-                proxy2 = list_proxies()
+                proxy2 = ''
                 print proxy2
                 
             url = url_ct+"&page="+str(x)
