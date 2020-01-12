@@ -1,14 +1,4 @@
-["https://www.amazon.com/b/?ie=UTF8&node=15529609011&ref_=nav_swm_AE_EN_SWM_Deals&pf_rd_p=019b6652-a6b4-403d-aa7d-ac5d910ff981&pf_rd_s=nav-sitewide-msg-export&pf_rd_t=4201&pf_rd_i=navbar-4201&pf_rd_m=ATVPDKIKX0DER&pf_rd_r=A9H9CQXK7TP2VH4KH7KX",
-"https://www.amazon.com/gift-cards/b/?ie=UTF8&node=2238192011&ref_=nav_cs_gift_cards",
-"https://www.amazon.com/b/?_encoding=UTF8&ld=AZUSSOA-sell&node=12766669011&ref_=nav_cs_sell",
-"https://www.amazon.com/books-used-books-textbooks/b/?ie=UTF8&node=283155&ref_=topnav_storetab_b",
-"https://www.amazon.com/Advanced-Search-Books/b/?ie=UTF8&node=241582011&ref_=sv_b_1",
-"https://www.amazon.com/b/?ie=UTF8&node=16857165011&ref_=sv_b_3",
-"https://www.amazon.com/Childrens-Books/b/?ie=UTF8&node=4&ref_=sv_b_4",
-"https://www.amazon.com/New-Used-Textbooks-Books/b/?ie=UTF8&node=465600&ref_=sv_b_5",
-"https://www.amazon.com/b/?ie=UTF8&node=5657188011&ref_=sv_b_6",
-"https://www.amazon.com/b/?ie=UTF8&node=2205237011&ref_=sv_b_7",
-"https://www.amazon.com/b/?ie=UTF8&node=390919011&ref_=sv_b_8",
+["https://www.amazon.com/b/?ie=UTF8&node=390919011&ref_=sv_b_8",
 "https://www.amazon.com/b/ref=s9_acss_bw_cg_USCHP8P_1a1_w?node=17276794011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-2&pf_rd_r=A9H9CQXK7TP2VH4KH7KX&pf_rd_t=101&pf_rd_p=1dcaf360-51af-4795-a892-905e518591fb&pf_rd_i=4",
 "https://www.amazon.com/b/ref=s9_acss_bw_cg_USCHP8P_3a1_w?node=2578998011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-2&pf_rd_r=A9H9CQXK7TP2VH4KH7KX&pf_rd_t=101&pf_rd_p=1dcaf360-51af-4795-a892-905e518591fb&pf_rd_i=4",
 "https://www.amazon.com/b/ref=s9_acss_bw_cg_USCHP8P_3b1_w?node=2578999011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-2&pf_rd_r=A9H9CQXK7TP2VH4KH7KX&pf_rd_t=101&pf_rd_p=1dcaf360-51af-4795-a892-905e518591fb&pf_rd_i=4",
@@ -70,5 +60,4 @@
 "https://www.amazon.com/b/ref=chp_manbrowse_BOTM/140-2559875-7008237?ie=UTF8&node=17276794011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-leftnav&pf_rd_r=A9H9CQXK7TP2VH4KH7KX&pf_rd_r=A9H9CQXK7TP2VH4KH7KX&pf_rd_t=101&pf_rd_p=f3f73c20-8108-4e7c-8265-37a41211a130&pf_rd_p=f3f73c20-8108-4e7c-8265-37a41211a130&pf_rd_i=4",
 "https://www.amazon.com/b/ref=chp_manbrowse_100Kids/140-2559875-7008237?ie=UTF8&node=9660210011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-leftnav&pf_rd_r=A9H9CQXK7TP2VH4KH7KX&pf_rd_r=A9H9CQXK7TP2VH4KH7KX&pf_rd_t=101&pf_rd_p=f3f73c20-8108-4e7c-8265-37a41211a130&pf_rd_p=f3f73c20-8108-4e7c-8265-37a41211a130&pf_rd_i=4",
 "https://www.amazon.com/Childrens-Books-Award-Winning-Books/b/ref=chp_manbrowse_award/140-2559875-7008237?ie=UTF8&node=6285431011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-leftnav&pf_rd_r=A9H9CQXK7TP2VH4KH7KX&pf_rd_r=A9H9CQXK7TP2VH4KH7KX&pf_rd_t=101&pf_rd_p=f3f73c20-8108-4e7c-8265-37a41211a130&pf_rd_p=f3f73c20-8108-4e7c-8265-37a41211a130&pf_rd_i=4",
-"https://www.amazon.com/Childrens-Chapter-eBooks-Kindle/b/ref=chp_manbrowse_kindle/140-2559875-7008237?ie=UTF8&node=726696011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-leftnav&pf_rd_r=A9H9CQXK7TP2VH4KH7KX&pf_rd_r=A9H9CQXK7TP2VH4KH7KX&pf_rd_t=101&pf_rd_p=f3f73c20-8108-4e7c-8265-37a41211a130&pf_rd_p=f3f73c20-8108-4e7c-8265-37a41211a130&pf_rd_i=4",
-"https://www.amazon.com/b/?_encoding=UTF8&ld=AZUSSOA-seemore&node=18190131011&ref_=footer_seemore"]
+"https://www.amazon.com/Childrens-Chapter-eBooks-Kindle/b/ref=chp_manbrowse_kindle/140-2559875-7008237?ie=UTF8&node=726696011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-leftnav&pf_rd_r=A9H9CQXK7TP2VH4KH7KX&pf_rd_r=A9H9CQXK7TP2VH4KH7KX&pf_rd_t=101&pf_rd_p=f3f73c20-8108-4e7c-8265-37a41211a130&pf_rd_p=f3f73c20-8108-4e7c-8265-37a41211a130&pf_rd_i=4"]
