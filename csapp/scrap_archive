@@ -1,0 +1,190 @@
+from django.shortcuts import render
+
+import requests
+import re
+from bs4 import BeautifulSoup
+import json
+session = requests.Session()
+session.headers = {"",""}
+
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)]
+
+list_of_error_proxy=[]
+current_proxy=''
+def get_con(url,proxy):
+    try:
+        return session.get(url).content
+    except:
+        print('Error Reconnecting 2:',proxy)
+        return 'error'
+    
+def books_all_scrap():
+    book_list_all=[]
+    pi = 0
+    pi2 =0
+    for url_ct in cat_urls:
+        book_list_all_2=[]
+        pi2=pi2+1
+        proxy2 = ''
+        print proxy2
+        iop = 0
+        for x in range(0,75):
+            iop = iop +1
+            if iop>20:
+                iop = 0
+                proxy2 = ''
+                print proxy2
+                
+            url = url_ct+"&page="+str(x)
+            content = get_con(url,proxy2)
+            # print("got this content:",content)
+            if(content!='error'):
+                print('connected:',proxy2)
+                
+            while(content=='error') :
+                print('Error Reconnecting:',proxy2)
+                proxy2 =list_proxies()
+                content=get_con(url,proxy2)
+
+            soup = BeautifulSoup(content, "html5lib")
+            book_list_temp = soup.findAll('a',{'class':'a-link-normal a-text-normal'})
+            title = soup.find('title')
+            title=title.text
+            title=title.replace('<title>','')
+            title= title.replace('</title>','')
+            title= title.replace('/','')
+            title= title.replace('\n','')
+            title= title.replace('.com','')
+            title= title.replace(':','_')
+            title= title.replace('.','')
+            title= title.replace(' ','_')
+            title= title.replace('"','_')
+            print ("for page ",x," --",title)
+            if len(book_list_temp) ==0:
+                print ("errored for", title)
+            for book in book_list_temp:
+                
+                book_i = books_all_scrap_one("https://www.amazon.in"+book.get('href'))
+
+                if(check_if_redacted(book_i[0])=='no'):
+                    pi =pi +1
+                    book_list_all_2.append(book_i)
+                    book_list_all.append(book_i)
+                    print("Currently scraping Page: ",x,"  of category ",title," Total Books scrapped: ",pi,"Working....",book_i[0] )
+
+        f= open("/home/user88/Desktop/Iwyno/scrap_outputs/"+str(pi2)+"_"+title+".json","w+")
+        f.write(json.dumps(book_list_all_2))
+        f.close() 
+    
+    f= open("/home/user88/Desktop/Iwyno/scrap_outputs/all.json","w+")
+    f.write(json.dumps(book_list_all))
+    f.close() 
+    return book_list_all 
+
+def books_all_scrap_one(turl):
+
+    url = turl
+    book_list_all=[]
+    content = session.get(url, verify=False).content
+    x = re.search("/dp/+", url)
+
+    if (x):
+        print('received :',url)
+        try:
+            soup = BeautifulSoup(content, "html5lib")
+            name = soup.find('span',{'class':'a-size-large'}).text
+            try:
+                image_url = soup.find('img',{'id':'imgBlkFront'}).get('data-a-dynamic-image')
+            except :
+                image_url = soup.find('img',{'id':'ebooksImgBlkFront'}).get('data-a-dynamic-image')
+
+            book_list_all.append("Book Name: " +name)
+            book_list_all.append("Image_url: "+image_url)
+
+            cc = soup.find('div',{'class':'content'})
+            t2 = cc.findAll('li')
+
+            for x in range(len(t2)):
+                book_list_all.append(t2[x].text)
+            
+            ccs =  soup.select('noscript')[1].get_text(strip=True)
+            book_list_all.append("Desc: "+ccs)
+            print ("name :", name)
+
+        except :
+            print('upped redacted')
+            book_list_all.append("REDACTED")
+
+        return book_list_all 
+
+    else:
+        print('bottom redacted')
+        return 'REDACTED ADVERTISEMENT-ERROR: '
+
+def is_it_a_book_or_category(url):
+
+    x = re.search("/dp/+", url)
+    y = re.search("/s/+", url)
+    if x:
+        return 'book'
+    elif y:
+        return 'category'
+
+def check_if_redacted(url):
+
+    x = re.search("REDACTED", url[0])
+
+    if (x or url=='R' or url=='REDACTED'):
+        return 'yes'
+    else:
+        return 'no'
+
+
+def list_proxies():
+    working_proxy_list =[]
+    url = 'https://free-proxy-list.net/'
+
+    content = session.get(url, verify=False).content
+
+    soup = BeautifulSoup(content, "html5lib")
+    oo =   soup.find('table',{"id":"proxylisttable"})
+    ooo = oo.findAll('tr')
+    i =0
+    for o4 in ooo:
+        try:
+            ooi = str(o4.findAll('td')[0].contents[0])
+            ooi2=str(o4.findAll('td')[1].contents[0])
+            ooi3=str(o4.findAll('td')[1].contents[0])
+            ooi3=str(o4.findAll('td')[6].contents[0])
+            if(ooi3=='yes'):
+                
+                built = ooi+":"+ooi2
+                print("is yes", built)
+                if(check_the_proxy_connection(built)=='connected'):
+                    return built                
+        except:
+            print ''
+    return working_proxy_list
+
+def check_the_proxy_connection(p):
+    global list_of_error_proxy,current_proxy
+    if(p in list_of_error_proxy):
+        return 'error'
+        
+    url = 'https://httpbin.org/ip'
+    proxy = p
+    print("current proxy :",current_proxy," checking proxy connection of :",proxy)
+    response = requests.get(url,proxies={"http": proxy, "https": proxy})
+
+    if(response.json()!='' and current_proxy!= proxy):
+        print ("Got an new proxy:",proxy)
+        current_proxy=proxy
+        return 'connected'
+    else:
+        print ("Error: ",proxy, " need another proxy")
+        list_of_error_proxy.append(proxy)
+        return 'error'
+        
+
+    
