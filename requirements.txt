@@ -154,7 +154,7 @@ sorl-thumbnail==12.5.0
 soupsieve==1.9.4
 South==1.0.2
 subprocess32==3.5.4
-suds==0.4
+suds==1.0.0
 suds-jurko==0.6
 termcolor==1.1.0
 terminado==0.8.2
